@@ -1,4 +1,5 @@
 using System;
+using GameScene.Enemy;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -41,7 +42,15 @@ namespace GameScene.Player
 
         void HandleCollisionEvent(Collision2D collision)
         {
-            isJumping = false;
+            if (collision.gameObject.GetComponent<IEnemy>() != null)
+            {
+                Debug.Log("game over");
+                Debug.Log(collision.gameObject);
+            }
+            else
+            {
+                isJumping = false;
+            }
         }
     }
 }
