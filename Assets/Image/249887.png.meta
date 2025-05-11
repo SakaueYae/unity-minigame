@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5d535c4b445d33541bbbb433d0b40e39
+guid: a5a6a24fe895ba74c8a725c4cdaa7df1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1412668193794377951
-    second: 249916_0
+      213: -8183079018054381755
+    second: 249887_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,199 +113,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sink
+      name: refrigerator
       rect:
         serializedVersion: 2
-        x: 90
-        y: 160
-        width: 4095
-        height: 1873
+        x: 76
+        y: 56
+        width: 1421
+        height: 2881
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cba3a4363f7ca9479d5e5f6599b0488
-      internalID: 434762688
+      spriteID: db4c4a0898c64844f8602e24cac755f4
+      internalID: 778488703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_hood
+      name: air_conditioner
       rect:
         serializedVersion: 2
-        x: 401
-        y: 2268
-        width: 1110
-        height: 887
+        x: 1573
+        y: 2151
+        width: 2132
+        height: 932
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd545a7e57b91224da1bf32137231758
-      internalID: -1726769936
+      spriteID: 28ff7209cc0869645ad8215541ec094d
+      internalID: -1510293717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big_pot
+      name: phone_1
       rect:
         serializedVersion: 2
-        x: 1648
-        y: 2602
-        width: 819
-        height: 517
+        x: 2133
+        y: 1252
+        width: 852
+        height: 809
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52308ee53ad4b764589d17ad8d3af7bc
-      internalID: -278926197
+      spriteID: 998fefb06ec8ed54c858a731bb33ebfc
+      internalID: -2137560076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small_pot
+      name: phone_2
       rect:
         serializedVersion: 2
-        x: 2467
-        y: 2602
-        width: 715
-        height: 375
+        x: 2999
+        y: 1270
+        width: 409
+        height: 777
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b2080d84bf3266458807f3bbbecd015
-      internalID: -806513440
+      spriteID: 662611f1955d66a4e9096b13611e381e
+      internalID: -971735929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: towel
+      name: controller
       rect:
         serializedVersion: 2
-        x: 1554
+        x: 3813
         y: 2193
-        width: 790
-        height: 409
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc232886719d37c40ab18fc753b80002
-      internalID: -1136434335
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dishes
-      rect:
-        serializedVersion: 2
-        x: 2415
-        y: 2165
         width: 367
-        height: 381
+        height: 894
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f99d30d092a976f4f90f23798d9c25c2
-      internalID: 715260241
+      spriteID: 2556e0b11edc0c947ab01a91581ea4ab
+      internalID: -972150579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cup_1
+      name: microwave
       rect:
         serializedVersion: 2
-        x: 2787
-        y: 2165
-        width: 301
-        height: 306
+        x: 1587
+        y: 61
+        width: 1365
+        height: 927
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de3f3c2cfde0ee144aa6106aa78c77bc
-      internalID: 302929608
+      spriteID: 98f894241545ea14ca96ae6eca1a8557
+      internalID: -678402892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cup_2
+      name: kettle
       rect:
         serializedVersion: 2
-        x: 3102
-        y: 2169
-        width: 297
-        height: 306
+        x: 3022
+        y: 56
+        width: 1078
+        height: 1130
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc17bcb9d253bea408cf6929e19feb4e
-      internalID: 988827898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tools
-      rect:
-        serializedVersion: 2
-        x: 3324
-        y: 2391
-        width: 908
-        height: 734
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5963ae60aaf061d41b3bcc8049ad4d29
-      internalID: 857141858
+      spriteID: 7dfdbb5168e48dc4093d02fcef5d6609
+      internalID: 2015154491
       vertices: []
       indices: 
       edges: []
@@ -314,7 +270,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8fb26f6d85bf1fe42bc73e04517f140a
+    spriteID: eb7a983bb4762994babfa4684da8e4b6
     internalID: 0
     vertices: []
     indices: 
@@ -324,15 +280,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      big_pot: -278926197
-      cup_1: 302929608
-      cup_2: 988827898
-      dishes: 715260241
-      range_hood: -1726769936
-      sink: 434762688
-      small_pot: -806513440
-      tools: 857141858
-      towel: -1136434335
+      air_conditioner: -1510293717
+      controller: -972150579
+      kettle: 2015154491
+      microwave: -678402892
+      phone_1: -2137560076
+      phone_2: -971735929
+      refrigerator: 778488703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

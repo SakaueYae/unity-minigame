@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2cf713025b885cb48b20c9be0524aea3
+guid: 1622f2a8c1aefc04593282d93dfd3942
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3301402551289208231
-    second: ed458c65a115ab86b426787ad70c5762_0
+      213: 6408297877863919378
+    second: 249896_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ed458c65a115ab86b426787ad70c5762_0
+      name: full_length_mirror
       rect:
         serializedVersion: 2
-        x: 50
-        y: 88
-        width: 916
-        height: 852
+        x: 245
+        y: 56
+        width: 862
+        height: 2772
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ad592af020f0dd20800000000000000
-      internalID: 3301402551289208231
+      spriteID: 21fe7f0a7f8dee850800000000000000
+      internalID: 6408297877863919378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall_shelf
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 1656
+        width: 1600
+        height: 1502
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6939d1135f8fa419c94bb81c8d6f12
+      internalID: -518362239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: towels
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 842
+        width: 1515
+        height: 739
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3b245320cea53469a6c84f8e311334
+      internalID: 1250526525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: basket
+      rect:
+        serializedVersion: 2
+        x: 1846
+        y: 61
+        width: 917
+        height: 739
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f743afcb3db0147b6fd9f543ef0df0
+      internalID: -376424830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror
+      rect:
+        serializedVersion: 2
+        x: 2966
+        y: 1783
+        width: 1082
+        height: 1191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffef2839135fe8418b103948748f040
+      internalID: -295727307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sink
+      rect:
+        serializedVersion: 2
+        x: 2867
+        y: 61
+        width: 1261
+        height: 1628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d120ead57efa394bb3e9c333bcb5c73
+      internalID: -231141543
       vertices: []
       indices: 
       edges: []
@@ -138,7 +248,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: efc24ffe88add5a40b41dbe01203c7b7
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +258,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ed458c65a115ab86b426787ad70c5762_0: 3301402551289208231
+      basket: -376424830
+      full_length_mirror: 6408297877863919378
+      mirror: -295727307
+      sink: -231141543
+      towels: 1250526525
+      wall_shelf: -518362239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

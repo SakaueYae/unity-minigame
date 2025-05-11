@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5d535c4b445d33541bbbb433d0b40e39
+guid: c1da5a4d4326f01439f294b8edc8d374
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1412668193794377951
-    second: 249916_0
+      213: -1637474544178319483
+    second: 249891_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,199 +113,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sink
+      name: tv_stand
       rect:
         serializedVersion: 2
-        x: 90
-        y: 160
-        width: 4095
-        height: 1873
+        x: 104
+        y: 51
+        width: 2358
+        height: 890
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cba3a4363f7ca9479d5e5f6599b0488
-      internalID: 434762688
+      spriteID: cd1e62edd9a33a64e817e60f7a2b2adf
+      internalID: -2007227024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: range_hood
+      name: shelf_1
       rect:
         serializedVersion: 2
-        x: 401
-        y: 2268
-        width: 1110
-        height: 887
+        x: 1182
+        y: 1129
+        width: 1280
+        height: 551
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd545a7e57b91224da1bf32137231758
-      internalID: -1726769936
+      spriteID: 496b066c8813e8d4da5dab7807acd431
+      internalID: 1018178189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big_pot
+      name: shelf_2
       rect:
         serializedVersion: 2
-        x: 1648
-        y: 2602
-        width: 819
-        height: 517
+        x: 2599
+        y: 32
+        width: 1642
+        height: 1977
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52308ee53ad4b764589d17ad8d3af7bc
-      internalID: -278926197
+      spriteID: c52fd4af1db2e82419d20e18664a3718
+      internalID: 1708098766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: small_pot
+      name: wall_shelf
       rect:
         serializedVersion: 2
-        x: 2467
-        y: 2602
-        width: 715
-        height: 375
+        x: 113
+        y: 1769
+        width: 1568
+        height: 400
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b2080d84bf3266458807f3bbbecd015
-      internalID: -806513440
+      spriteID: a11e9055ac62f97469ae3551462a0518
+      internalID: 1620749618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: towel
+      name: plant_1
       rect:
         serializedVersion: 2
-        x: 1554
-        y: 2193
-        width: 790
-        height: 409
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc232886719d37c40ab18fc753b80002
-      internalID: -1136434335
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dishes
-      rect:
-        serializedVersion: 2
-        x: 2415
-        y: 2165
-        width: 367
-        height: 381
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f99d30d092a976f4f90f23798d9c25c2
-      internalID: 715260241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cup_1
-      rect:
-        serializedVersion: 2
-        x: 2787
-        y: 2165
-        width: 301
-        height: 306
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de3f3c2cfde0ee144aa6106aa78c77bc
-      internalID: 302929608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cup_2
-      rect:
-        serializedVersion: 2
-        x: 3102
-        y: 2169
-        width: 297
-        height: 306
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc17bcb9d253bea408cf6929e19feb4e
-      internalID: 988827898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tools
-      rect:
-        serializedVersion: 2
-        x: 3324
+        x: 189
         y: 2391
-        width: 908
-        height: 734
+        width: 306
+        height: 503
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5963ae60aaf061d41b3bcc8049ad4d29
-      internalID: 857141858
+      spriteID: f09a5d0035bb4b34aad09eda8aadf61c
+      internalID: 132016538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_2
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 2405
+        width: 297
+        height: 503
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0943324c5504c84e9a7e80f0f25e8c4
+      internalID: 2061886518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_3
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 2405
+        width: 306
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f09206e7640c4498e9991c1579eda2
+      internalID: 1625156013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wind
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 2358
+        width: 560
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba5ba2f0b0b22d846a56840f8675cb68
+      internalID: 229227170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: light
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 2108
+        width: 861
+        height: 1064
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 576076eeccbacdf44beb71e560f46808
+      internalID: 827444303
       vertices: []
       indices: 
       edges: []
@@ -314,7 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8fb26f6d85bf1fe42bc73e04517f140a
+    spriteID: 29014b465a39aa240b73b49e86b92656
     internalID: 0
     vertices: []
     indices: 
@@ -324,15 +324,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      big_pot: -278926197
-      cup_1: 302929608
-      cup_2: 988827898
-      dishes: 715260241
-      range_hood: -1726769936
-      sink: 434762688
-      small_pot: -806513440
-      tools: 857141858
-      towel: -1136434335
+      light: 827444303
+      plant_1: 132016538
+      plant_2: 2061886518
+      plant_3: 1625156013
+      shelf_1: 1018178189
+      shelf_2: 1708098766
+      tv_stand: -2007227024
+      wall_shelf: 1620749618
+      wind: 229227170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

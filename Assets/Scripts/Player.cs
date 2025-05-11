@@ -1,5 +1,6 @@
 using System;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 namespace GameScene.Player
@@ -17,7 +18,12 @@ namespace GameScene.Player
         public void Jump();
     }
 
-    public class Player : MonoBehaviour,IKeyEvent
+    interface ICollisionEvent<T>
+    {
+        public IObservable<T> OnCollision();
+    }
+
+    public class Player : MonoBehaviour,IKeyEvent,ICollisionEvent<Collision2D>
     {
         [SerializeField]
         float force = 0.0f;
@@ -26,14 +32,18 @@ namespace GameScene.Player
         [SerializeField]
         float maxVelocity = 0.0f;
 
-        //private Subject<Unit> _
-        public 
+        private Subject<Collision2D> _onColiision = new Subject<Collision2D>();
+        public IObservable<Collision2D> OnCollision() => _onColiision;
+
         Rigidbody2D _rb2;
+
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _rb2 = GetComponent<Rigidbody2D>();
+
+            this.OnCollisionEnter2DAsObservable().Subscribe(collision => _onColiision.OnNext(collision));
         }
 
 
