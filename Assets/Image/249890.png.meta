@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2cf713025b885cb48b20c9be0524aea3
+guid: 1917448dedc96af479ae24a573cedd22
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3301402551289208231
-    second: ed458c65a115ab86b426787ad70c5762_0
+      213: -8251233864710526421
+    second: 249890_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ed458c65a115ab86b426787ad70c5762_0
+      name: sofa
       rect:
         serializedVersion: 2
-        x: 50
-        y: 88
-        width: 916
-        height: 852
+        x: 24
+        y: 98
+        width: 2876
+        height: 1318
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ad592af020f0dd20800000000000000
-      internalID: 3301402551289208231
+      spriteID: 71b2f38a82549564aaf787400a2a5039
+      internalID: 673115401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desk_mini
+      rect:
+        serializedVersion: 2
+        x: 2919
+        y: 98
+        width: 1374
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e101feb4c7b8aac4db428bbdcd049e40
+      internalID: 429451167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: circle_clock
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 2236
+        width: 861
+        height: 880
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848342c3e028602459be843dcb2c9346
+      internalID: 1426233475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: square_clock
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 1582
+        width: 861
+        height: 880
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f39802a28a965344b120badf82f94cc
+      internalID: 126830113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: desk_and_chairs
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 1525
+        width: 2274
+        height: 1661
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b138e76496b92243b098554373e76de
+      internalID: 1527227511
       vertices: []
       indices: 
       edges: []
@@ -138,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2537839ba1cbd5541a7fe91b82bf433b
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +236,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ed458c65a115ab86b426787ad70c5762_0: 3301402551289208231
+      circle_clock: 1426233475
+      desk_and_chairs: 1527227511
+      desk_mini: 429451167
+      sofa: 673115401
+      square_clock: 126830113
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
