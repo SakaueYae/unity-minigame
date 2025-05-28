@@ -23,7 +23,19 @@ namespace GameScene.Player
         public IObservable<T> OnCollision();
     }
 
-    public class Player : MonoBehaviour,IKeyEvent,ICollisionEvent<Collision2D>
+    public enum PlayerStatus
+    {
+        Burst,
+        Wet,
+        Clear,
+    }
+
+    interface IAnimation
+    {
+        public void ToggleAnimation(PlayerStatus status);
+    }
+
+    public class Player : MonoBehaviour,IKeyEvent,ICollisionEvent<Collision2D>, IAnimation
     {
         [SerializeField]
         float force = 0.0f;
@@ -36,12 +48,14 @@ namespace GameScene.Player
         public IObservable<Collision2D> OnCollision() => _onColiision;
 
         Rigidbody2D _rb2;
+        Animator _animator;
 
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _rb2 = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
 
             this.OnCollisionEnter2DAsObservable().Subscribe(collision => _onColiision.OnNext(collision));
         }
@@ -64,6 +78,24 @@ namespace GameScene.Player
         public void Jump()
         {
             _rb2.AddForce(new Vector2(0, jumpForce));
+        }
+
+        public void ToggleAnimation(PlayerStatus status)
+        {
+            // óvèCê≥
+            Time.timeScale = 0;
+            switch (status)
+            {
+                case PlayerStatus.Burst:
+                    _animator.SetBool("isBurst", true);
+                    break;
+                case PlayerStatus.Wet:
+                    break;
+                case PlayerStatus.Clear:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

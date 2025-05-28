@@ -1,4 +1,5 @@
 using System;
+using GameScene.Audio;
 using GameScene.Enemy;
 using UniRx;
 using UniRx.Triggers;
@@ -34,7 +35,11 @@ namespace GameScene.Player
                 .AddTo(this);
              Observable.EveryUpdate()
                 .Where(_ => Input.GetKeyDown(KeyCode.Space)&&!isJumping)
-                .Subscribe(_ => { _playerKeyEvent.Jump(); isJumping = true; })
+                .Subscribe(_ => { 
+                    _playerKeyEvent.Jump();
+                    isJumping = true;
+                    SoundManager.Instance.PlaySE("Jump");
+                })
                 .AddTo(this);
 
             _playerCollisionEvent.OnCollision().Subscribe((collision) => HandleCollisionEvent(collision));
@@ -46,6 +51,7 @@ namespace GameScene.Player
             {
                 Debug.Log("game over");
                 Debug.Log(collision.gameObject);
+                _player.ToggleAnimation(PlayerStatus.Burst);
             }
             else
             {
