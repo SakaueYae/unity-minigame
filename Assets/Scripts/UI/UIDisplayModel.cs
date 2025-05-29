@@ -11,18 +11,24 @@ namespace GameScene.UI
     public enum DisplayStatus
     {
         Start,
+        Proceeding,
         Pause,
         Clear,
         GameOver
     }
 
-    public class Model
+    public class UIDisplayModel
     {
         public ReactiveProperty<DisplayStatus> CurrentDisplayStatus;
 
-        public Model(DisplayStatus displayStatus)
+        public UIDisplayModel(DisplayStatus displayStatus)
         {
             CurrentDisplayStatus = new ReactiveProperty<DisplayStatus>(displayStatus);
+        }
+
+        public void ChangeDisplayStatus(DisplayStatus nextStatus)
+        {
+            CurrentDisplayStatus.Value = nextStatus;
         }
     }
 }

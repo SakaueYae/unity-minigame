@@ -1,16 +1,38 @@
+using System;
 using UnityEngine;
+using UniRx;
+using GameScene.Camera;
 
-public class UIDisplayStatus : MonoBehaviour
+namespace GameScene.UI
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Serializable]
+    public class UIDisplayPrevew : MonoBehaviour
     {
-        
-    }
+        [Header("IUIDisplayViewÇ™ïKê{")]
+        [SerializeReference]
+        StartCanvasController startCanvasView;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField]
+        CameraController _camera;
+
+        IUIDisplayView[] _views;
+        UIDisplayModel _model;
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
+            _model = new UIDisplayModel(DisplayStatus.Start);
+            _views = new IUIDisplayView[] { startCanvasView.GetComponent<IUIDisplayView>() };
+
+            foreach (IUIDisplayView view in _views)
+            {
+                view.OnChangeState().Subscribe(status => _model.ChangeDisplayStatus(status)).AddTo(this);
+            }
+
+            _model.CurrentDisplayStatus.Subscribe(status =>
+            {
+                _camera.Move();
+            });
+        }
     }
 }
