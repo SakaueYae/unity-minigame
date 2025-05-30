@@ -1,3 +1,4 @@
+using GameScene.Audio;
 using UniRx;
 using UnityEngine;
 
@@ -22,21 +23,25 @@ namespace GameScene.Player
             void OnExit(Player player);
         }
 
+        void Move(bool isRight, Rigidbody2D rb2)
+        {
+            if (isRight)
+            {
+                if (rb2.linearVelocityX > maxVelocity) return;
+                rb2.AddForce(new Vector2(force, 0));
+            }
+            else
+            {
+                if (rb2.linearVelocityX < maxVelocity * (-1)) return;
+                rb2.AddForce(new Vector2(force * -1, 0));
+            }
+        }
+
         /// <summary>
         /// ï‡çsèÛë‘
         /// </summary>
         class WalkState : IPlayerState
         {
-            private Rigidbody2D _rb2;
-            private float _force;
-            private float _maxVelocity;
-
-            public WalkState(float force, float maxVelocity)
-            {
-                _force = force;
-                _maxVelocity = maxVelocity;
-            }
-
             public void OnEnter(Player player)
             {
 
@@ -46,13 +51,13 @@ namespace GameScene.Player
             {
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    Move(true, player.GetComponent<Rigidbody2D>());
+                    player.Move(true, player.GetComponent<Rigidbody2D>()); // Fixed: Use instance method
                 }
                 if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    Move(false, player.GetComponent<Rigidbody2D>());
+                    player.Move(false, player.GetComponent<Rigidbody2D>()); // Fixed: Use instance method
                 }
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     player.ChangeState(player._jumpState);
                 }
@@ -63,20 +68,6 @@ namespace GameScene.Player
             {
 
             }
-
-            void Move(bool isRight, Rigidbody2D rb2)
-            {
-                if (isRight)
-                {
-                    if (rb2.linearVelocityX > _maxVelocity) return;
-                    rb2.AddForce(new Vector2(_force, 0));
-                }
-                else
-                {
-                    if (rb2.linearVelocityX < _maxVelocity * (-1)) return;
-                    rb2.AddForce(new Vector2(_force * -1, 0));
-                }
-            }
         }
 
         /// <summary>
@@ -85,22 +76,25 @@ namespace GameScene.Player
         class JumpState : IPlayerState
         {
             private Rigidbody2D _rb2;
-            private float jumpForce;
 
-            public JumpState(float jumpForce)
-            {
-                this.jumpForce = jumpForce;
-            }
 
             public void OnEnter(Player player)
             {
                 _rb2 = player.GetComponent<Rigidbody2D>();
-                _rb2.AddForce(new Vector2(0, jumpForce));
+                _rb2.AddForce(new Vector2(0, player.jumpForce));
+                SoundManager.Instance.PlaySE("Jump");
             }
 
             public void OnUpdate(Player player)
             {
-
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    player.Move(true, player.GetComponent<Rigidbody2D>());
+                }
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    player.Move(false, player.GetComponent<Rigidbody2D>());
+                }
             }
 
             public void OnExit(Player player)

@@ -1,4 +1,5 @@
 using System;
+using GameScene.Enemy;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace GameScene.Player
         public IObservable<T> OnCollision();
     }
 
-    public partial class Player : MonoBehaviour,IKeyEvent,ICollisionEvent<Collision2D>
+    public partial class Player : MonoBehaviour,ICollisionEvent<Collision2D>
     {
         [SerializeField]
         float force = 0.0f;
@@ -52,8 +53,8 @@ namespace GameScene.Player
         {
             _rb2 = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _walkState = new WalkState(force, maxVelocity);
-            _jumpState = new JumpState(jumpForce);
+            _walkState = new WalkState();
+            _jumpState = new JumpState();
             _burstState = new BurstState();
             _wetState = new WetState();
             _fallState = new FallState();
@@ -65,7 +66,13 @@ namespace GameScene.Player
             {
                 //_onColiision.OnNext(collision);
                 ChangeState(_walkState);
-            });
+            }).AddTo(this);
+            this.OnCollisionEnter2DAsObservable()
+                .Where(collision => collision.gameObject.TryGetComponent<IEnemy>(out var emeny))
+                .Subscribe(collision =>
+                {
+                    ChangeState(_burstState);
+                }).AddTo(this);
         }
 
         void Update()
@@ -73,27 +80,10 @@ namespace GameScene.Player
             _currentState.OnUpdate(this);
         }
 
-        public void MoveX(XDirection dir)
-        {
-            if (dir==XDirection.Right)
-            {
-                if (_rb2.linearVelocityX > maxVelocity) return;
-                _rb2.AddForce(new Vector2(force, 0));
-            }
-            else
-            {
-                if (_rb2.linearVelocityX < maxVelocity * (-1)) return;
-                _rb2.AddForce(new Vector2(force * -1, 0));
-            }
-        }
-
-        public void Jump()
-        {
-            _rb2.AddForce(new Vector2(0, jumpForce));
-        }
 
         public void ToggleAnimation(PlayerStatus status)
         {
+            Time.timeScale = 0;
             switch (status)
             {
                 case PlayerStatus.Burst:
