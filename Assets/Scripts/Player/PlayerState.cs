@@ -1,3 +1,4 @@
+using UniRx;
 using UnityEngine;
 
 namespace GameScene.Player
@@ -38,21 +39,20 @@ namespace GameScene.Player
 
             public void OnEnter(Player player)
             {
-                player.ToggleAnimation(PlayerStatus.Walk);
-                _rb2 = player.GetComponent<Rigidbody2D>();
+
             }
 
             public void OnUpdate(Player player)
             {
-                if (Input.GetKeyDown(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    Move(true);
+                    Move(true, player.GetComponent<Rigidbody2D>());
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    Move(false);
+                    Move(false, player.GetComponent<Rigidbody2D>());
                 }
-                if(Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Space))
                 {
                     player.ChangeState(player._jumpState);
                 }
@@ -61,20 +61,20 @@ namespace GameScene.Player
 
             public void OnExit(Player player)
             {
-                // Handle exit logic if needed
+
             }
 
-            void Move(bool isRight)
+            void Move(bool isRight, Rigidbody2D rb2)
             {
                 if (isRight)
                 {
-                    if (_rb2.linearVelocityX > _maxVelocity) return;
-                    _rb2.AddForce(new Vector2(_force, 0));
+                    if (rb2.linearVelocityX > _maxVelocity) return;
+                    rb2.AddForce(new Vector2(_force, 0));
                 }
                 else
                 {
-                    if (_rb2.linearVelocityX < _maxVelocity * (-1)) return;
-                    _rb2.AddForce(new Vector2(_force * -1, 0));
+                    if (rb2.linearVelocityX < _maxVelocity * (-1)) return;
+                    rb2.AddForce(new Vector2(_force * -1, 0));
                 }
             }
         }
@@ -95,7 +95,6 @@ namespace GameScene.Player
             public void OnEnter(Player player)
             {
                 _rb2 = player.GetComponent<Rigidbody2D>();
-                player.ToggleAnimation(PlayerStatus.Jump);
                 _rb2.AddForce(new Vector2(0, jumpForce));
             }
 
@@ -106,7 +105,7 @@ namespace GameScene.Player
 
             public void OnExit(Player player)
             {
-                // Handle exit logic if needed
+
             }
         }
 

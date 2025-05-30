@@ -59,11 +59,11 @@ namespace GameScene.Player
             _fallState = new FallState();
             _clearState = new ClearState();
             _currentState = _walkState;
-            Debug.Log(_currentState);
+            _currentState.OnEnter(this);
 
             this.OnCollisionEnter2DAsObservable().Subscribe(collision =>
             {
-                _onColiision.OnNext(collision);
+                //_onColiision.OnNext(collision);
                 ChangeState(_walkState);
             });
         }
@@ -94,8 +94,6 @@ namespace GameScene.Player
 
         public void ToggleAnimation(PlayerStatus status)
         {
-            // óvèCê≥
-            Time.timeScale = 0;
             switch (status)
             {
                 case PlayerStatus.Burst:
