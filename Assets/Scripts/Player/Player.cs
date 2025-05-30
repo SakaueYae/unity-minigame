@@ -23,19 +23,7 @@ namespace GameScene.Player
         public IObservable<T> OnCollision();
     }
 
-    public enum PlayerStatus
-    {
-        Burst,
-        Wet,
-        Clear,
-    }
-
-    interface IAnimation
-    {
-        public void ToggleAnimation(PlayerStatus status);
-    }
-
-    public class Player : MonoBehaviour,IKeyEvent,ICollisionEvent<Collision2D>, IAnimation
+    public partial class Player : MonoBehaviour,IKeyEvent,ICollisionEvent<Collision2D>
     {
         [SerializeField]
         float force = 0.0f;
@@ -50,16 +38,40 @@ namespace GameScene.Player
         Rigidbody2D _rb2;
         Animator _animator;
 
+        WalkState _walkState;
+        JumpState _jumpState;
+        BurstState _burstState;
+        WetState _wetState;
+        FallState _fallState;
+        ClearState _clearState;
+
+        IPlayerState _currentState;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _rb2 = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _walkState = new WalkState(force, maxVelocity);
+            _jumpState = new JumpState(jumpForce);
+            _burstState = new BurstState();
+            _wetState = new WetState();
+            _fallState = new FallState();
+            _clearState = new ClearState();
+            _currentState = _walkState;
+            Debug.Log(_currentState);
 
-            this.OnCollisionEnter2DAsObservable().Subscribe(collision => _onColiision.OnNext(collision));
+            this.OnCollisionEnter2DAsObservable().Subscribe(collision =>
+            {
+                _onColiision.OnNext(collision);
+                ChangeState(_walkState);
+            });
         }
 
+        void Update()
+        {
+            _currentState.OnUpdate(this);
+        }
 
         public void MoveX(XDirection dir)
         {
@@ -96,6 +108,13 @@ namespace GameScene.Player
                 default:
                     break;
             }
+        }
+
+        void ChangeState(IPlayerState newState)
+        {
+            _currentState.OnExit(this);
+            _currentState = newState;
+            _currentState.OnEnter(this);
         }
     }
 

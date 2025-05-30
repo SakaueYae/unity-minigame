@@ -6,7 +6,7 @@ using GameScene.Camera;
 namespace GameScene.UI
 {
     [Serializable]
-    public class UIDisplayPrevew : MonoBehaviour
+    public class GameProgressPresenter : MonoBehaviour
     {
         [Header("IUIDisplayViewÇ™ïKê{")]
         [SerializeReference]
@@ -16,12 +16,12 @@ namespace GameScene.UI
         CameraController _camera;
 
         IUIDisplayView[] _views;
-        UIDisplayModel _model;
+        GameProgressModel _model;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            _model = new UIDisplayModel(DisplayStatus.Start);
+            _model = new GameProgressModel(DisplayStatus.Start);
             _views = new IUIDisplayView[] { startCanvasView.GetComponent<IUIDisplayView>() };
 
             foreach (IUIDisplayView view in _views)
@@ -31,7 +31,22 @@ namespace GameScene.UI
 
             _model.CurrentDisplayStatus.Subscribe(status =>
             {
-                _camera.Move();
+                switch (status)
+                {
+                    case DisplayStatus.Start:
+                        break;
+                    case DisplayStatus.Proceeding:
+                        _camera.Move();
+                        break;
+                    case DisplayStatus.Pause:
+                        break;
+                    case DisplayStatus.Clear:
+                        break;
+                    case DisplayStatus.GameOver:
+                        break;
+                    default:
+                        break;
+                }
             });
         }
     }

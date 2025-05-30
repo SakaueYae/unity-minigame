@@ -17,11 +17,11 @@ namespace GameScene.UI
         GameOver
     }
 
-    public class UIDisplayModel
+    public class GameProgressModel
     {
         public ReactiveProperty<DisplayStatus> CurrentDisplayStatus;
 
-        public UIDisplayModel(DisplayStatus displayStatus)
+        public GameProgressModel(DisplayStatus displayStatus)
         {
             CurrentDisplayStatus = new ReactiveProperty<DisplayStatus>(displayStatus);
         }
