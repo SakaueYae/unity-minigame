@@ -1,24 +1,12 @@
 using System;
 using GameScene.Enemy;
+using GameScene.Obstacles;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
 namespace GameScene.Player
 {
-    public enum XDirection
-    {
-        Right,
-        Left
-    }
-
-    interface IKeyEvent
-    {
-        //public IObserver<Unit> KeyEventObserver();
-        public void MoveX(XDirection dir);
-        public void Jump();
-    }
-
     interface ICollisionEvent<T>
     {
         public IObservable<T> OnCollision();
@@ -32,6 +20,8 @@ namespace GameScene.Player
         float jumpForce = 0.0f;
         [SerializeField]
         float maxVelocity = 0.0f;
+        [SerializeField]
+        FireCollision[] fireCollisions;
 
         private Subject<Collision2D> _onColiision = new Subject<Collision2D>();
         public IObservable<Collision2D> OnCollision() => _onColiision;
@@ -67,12 +57,23 @@ namespace GameScene.Player
                 //_onColiision.OnNext(collision);
                 ChangeState(_walkState);
             }).AddTo(this);
-            this.OnCollisionEnter2DAsObservable()
-                .Where(collision => collision.gameObject.TryGetComponent<IEnemy>(out var emeny))
-                .Subscribe(collision =>
+            //this.OnCollisionEnter2DAsObservable()
+            //    .Where(collision => collision.gameObject.TryGetComponent<IEnemy>(out var emeny))
+            //    .Subscribe(collision =>
+            //    {
+            //        ChangeState(_burstState);
+            //    }).AddTo(this);
+
+            foreach (var fireCollision in fireCollisions)
+            {
+                fireCollision.OnFireCollision().Subscribe(obj =>
                 {
-                    ChangeState(_burstState);
+                    if (obj == this.gameObject)
+                    {
+                        ChangeState(_burstState);
+                    }
                 }).AddTo(this);
+            }
         }
 
         void Update()
