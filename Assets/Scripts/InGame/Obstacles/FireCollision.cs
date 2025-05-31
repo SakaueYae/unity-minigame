@@ -21,11 +21,5 @@ namespace GameScene.Obstacles {
                 _onFireCollision.OnNext(obj);
             }).AddTo(this);
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
     }
 }

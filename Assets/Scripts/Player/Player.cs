@@ -22,6 +22,8 @@ namespace GameScene.Player
         float maxVelocity = 0.0f;
         [SerializeField]
         FireCollision[] fireCollisions;
+        [SerializeField]
+        WaterCollision[] waterCollisions;
 
         private Subject<Collision2D> _onColiision = new Subject<Collision2D>();
         public IObservable<Collision2D> OnCollision() => _onColiision;
@@ -74,6 +76,17 @@ namespace GameScene.Player
                     }
                 }).AddTo(this);
             }
+
+            foreach (var waterCollision in waterCollisions)
+            {
+                waterCollision.OnWaterCollision().Subscribe(obj =>
+                {
+                    if (obj == this.gameObject)
+                    {
+                        ChangeState(_wetState);
+                    }
+                }).AddTo(this);
+            }
         }
 
         void Update()
@@ -88,9 +101,10 @@ namespace GameScene.Player
             switch (status)
             {
                 case PlayerStatus.Burst:
-                    _animator.SetBool("isBurst", true);
+                    _animator.SetTrigger("burst");
                     break;
                 case PlayerStatus.Wet:
+                    _animator.SetTrigger("wet");
                     break;
                 case PlayerStatus.Clear:
                     break;
