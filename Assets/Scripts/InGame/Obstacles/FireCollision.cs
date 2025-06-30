@@ -4,11 +4,11 @@ using UniRx;
 using UnityEngine;
 
 namespace GameScene.Obstacles {
-    public interface IFireObstacles {
+    public interface IFireObstacle {
         IObservable<GameObject> OnFireCollision();
     }
 
-    public class FireCollision : MonoBehaviour, IFireObstacles
+    public class FireCollision : MonoBehaviour, IFireObstacle
     {
         Subject<GameObject> _onFireCollision = new Subject<GameObject>();
         public IObservable<GameObject> OnFireCollision() => _onFireCollision;

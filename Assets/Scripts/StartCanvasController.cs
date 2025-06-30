@@ -2,18 +2,19 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using GameScene.GameStatus;
 using TMPro;
 using UniRx;
 using UnityEngine;
 
 namespace GameScene.UI
 {
-    public interface IUIDisplayView
+    public interface IGameProgressView
     {
         IObservable<DisplayStatus> OnChangeState();
     }
 
-    public class StartCanvasController : MonoBehaviour,IUIDisplayView
+    public class StartCanvasController : BaseGameProgressStatusChange
     {
         [SerializeField]
         GameObject text;
@@ -21,9 +22,6 @@ namespace GameScene.UI
         TextMeshProUGUI _text;
         AudioSource _audioSource;
         RectTransform _rectTransform;
-
-        Subject<DisplayStatus> _onEndCountdown = new Subject<DisplayStatus>();
-        public IObservable<DisplayStatus> OnChangeState() => _onEndCountdown;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created  
         void Start()
@@ -65,7 +63,7 @@ namespace GameScene.UI
             await UniTask.Delay(TimeSpan.FromSeconds(1f), DelayType.UnscaledDeltaTime);
 
             Time.timeScale = 1;
-            _onEndCountdown.OnNext(DisplayStatus.Proceeding);
+            _onChangeStatus.OnNext(DisplayStatus.Proceeding);
 
             gameObject.SetActive(false);
         }

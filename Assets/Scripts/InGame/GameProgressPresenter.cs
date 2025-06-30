@@ -2,29 +2,28 @@ using System;
 using UnityEngine;
 using UniRx;
 using GameScene.Camera;
+using GameScene.GameStatus;
+using System.Linq;
 
 namespace GameScene.UI
 {
     [Serializable]
     public class GameProgressPresenter : MonoBehaviour
     {
-        [Header("IUIDisplayViewÇ™ïKê{")]
-        [SerializeReference]
-        StartCanvasController startCanvasView;
-
         [SerializeField]
         CameraController _camera;
-
-        IUIDisplayView[] _views;
+        [SerializeField]
+        GameObject[] _viewsObj;
         GameProgressModel _model;
+        IGameProgressView[] _views;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             _model = new GameProgressModel(DisplayStatus.Start);
-            _views = new IUIDisplayView[] { startCanvasView.GetComponent<IUIDisplayView>() };
+            _views = _viewsObj.Select(obj => obj.GetComponent<IGameProgressView>()).ToArray();
 
-            foreach (IUIDisplayView view in _views)
+            foreach (IGameProgressView view in _views)
             {
                 view.OnChangeState().Subscribe(status => _model.ChangeDisplayStatus(status)).AddTo(this);
             }
@@ -39,6 +38,7 @@ namespace GameScene.UI
                         _camera.Move();
                         break;
                     case DisplayStatus.Pause:
+                        _camera.Stop();
                         break;
                     case DisplayStatus.Clear:
                         break;

@@ -1,3 +1,4 @@
+using UniRx;
 using UnityEngine;
 
 namespace GameScene.Camera
@@ -6,6 +7,8 @@ namespace GameScene.Camera
     {
         [SerializeField]
         float speed;
+        [SerializeField]
+        float maxPos;
 
         Transform _transform;
         float _speed;
@@ -21,6 +24,10 @@ namespace GameScene.Camera
         void Update()
         {
             _transform.position += new Vector3(_speed, 0, 0);
+            if(this.transform.localPosition.x > maxPos)
+            {
+                Stop();
+            }
         }
 
         public void Move()

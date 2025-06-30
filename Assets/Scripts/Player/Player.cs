@@ -21,9 +21,7 @@ namespace GameScene.Player
         [SerializeField]
         float maxVelocity = 0.0f;
         [SerializeField]
-        FireCollision[] fireCollisions;
-        [SerializeField]
-        WaterCollision[] waterCollisions;
+        GameObject[] waterCollisions;
 
         private Subject<Collision2D> _onColiision = new Subject<Collision2D>();
         public IObservable<Collision2D> OnCollision() => _onColiision;
@@ -57,6 +55,10 @@ namespace GameScene.Player
             this.OnCollisionEnter2DAsObservable().Subscribe(collision =>
             {
                 //_onColiision.OnNext(collision);
+                if(collision.gameObject.TryGetComponent<IWaterObstacle>(out var waterObstacle))
+                {
+                    ChangeState(_wetState);
+                }
                 ChangeState(_walkState);
             }).AddTo(this);
             //this.OnCollisionEnter2DAsObservable()
@@ -66,26 +68,21 @@ namespace GameScene.Player
             //        ChangeState(_burstState);
             //    }).AddTo(this);
 
-            foreach (var fireCollision in fireCollisions)
+            this.OnParticleCollisionAsObservable().Subscribe(particle =>
             {
-                fireCollision.OnFireCollision().Subscribe(obj =>
+                if (particle.TryGetComponent<IFireObstacle>(out var fireObstacle)) {
+                    ChangeState(_burstState);
+                }
+                if(particle.TryGetComponent<IWaterObstacle>(out var waterObstacle))
                 {
-                    if (obj == this.gameObject)
-                    {
-                        ChangeState(_burstState);
-                    }
-                }).AddTo(this);
-            }
+                    ChangeState(_wetState);
+                }
+            });
 
             foreach (var waterCollision in waterCollisions)
             {
-                waterCollision.OnWaterCollision().Subscribe(obj =>
-                {
-                    if (obj == this.gameObject)
-                    {
-                        ChangeState(_wetState);
-                    }
-                }).AddTo(this);
+
+                waterCollision.GetComponent<IWaterObstacle>().OnWaterCollision().Subscribe(_ => ChangeState(_wetState)).AddTo(this);
             }
         }
 
